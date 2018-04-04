@@ -8,7 +8,7 @@ This project is not affiliated with Jenkins Software LLC nor RakNet.
 
 # License
 
-There is this project the under GPLv3 License.
+There are these programs under the GPLv3 License.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

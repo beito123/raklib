@@ -1,4 +1,6 @@
-package raklib
+package protocol
+
+import "github.com/beito123/raklib"
 
 /*
 	Raklib
@@ -12,11 +14,11 @@ package raklib
 */
 
 type Protocol struct {
-	packets []Packet
+	packets []raklib.Packet
 }
 
 func (pro *Protocol) registerPackets() {
-	pro.packets = make([]Packet, 0xff)
+	pro.packets = make([]raklib.Packet, 0xff)
 
 	pro.packets[IDPingDataPacket] = &PingDataPacket{}
 	pro.packets[IDUnconnectedPing] = &UnconnectedPingPacket{}
@@ -24,8 +26,8 @@ func (pro *Protocol) registerPackets() {
 	pro.packets[IDPongDataPacket] = &PongDataPacket{}
 	pro.packets[IDOpenConnectionRequest1] = &OpenConnectionRequest1Packet{}
 	pro.packets[IDOpenConnectionReply1] = &OpenConnectionReply1Packet{}
-	pro.packets[IDOpenConnectionRequest2] = &OpenConnectionRequest2{}
-	pro.packets[IDOpenConnectionReply2] = &OpenConnectionReply2{}
+	pro.packets[IDOpenConnectionRequest2] = &OpenConnectionRequest2Packet{}
+	pro.packets[IDOpenConnectionReply2] = &OpenConnectionReply2Packet{}
 	pro.packets[IDClientConnectDataPacket] = &ClientConnectDataPacket{}
 	pro.packets[IDServerHandshakeDataPacket] = &ServerHandshakeDataPacket{}
 	pro.packets[IDClientHandshakeDataPacket] = &ClientHandshakeDataPacket{}
@@ -49,7 +51,7 @@ func (pro *Protocol) registerPackets() {
 	pro.packets[IDUnconnectedPong] = &UnconnectedPongPacket{}
 }
 
-func (pro *Protocol) Packet(id byte) Packet {
+func (pro *Protocol) Packet(id byte) raklib.Packet {
 	pk := pro.packets[id]
 	if pk == nil {
 		return nil
