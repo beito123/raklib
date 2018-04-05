@@ -1,5 +1,7 @@
 # Raklib
 
+    This project was archived. Because Raklib(By PMMP-Team) has license problem for me.
+
 This is Raknet library written in Go for Medaka.
 
 These code are rewritten in Go based on [Raklib](https://github.com/pmmp/RakLib) (by [PocketMine-Team](https://github.com/pmmp)).
